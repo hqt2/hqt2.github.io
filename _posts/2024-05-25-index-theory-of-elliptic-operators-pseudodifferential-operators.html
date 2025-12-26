@@ -39,76 +39,76 @@ permalink: "/2024/05/25/index-theory-of-elliptic-operators-pseudodifferential-op
 <p><strong>Symbols</strong> <strong>and Elliptic operators</strong></p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Let's start by reviewing briefly about Elliptic operators. The simplest example of an Elliptic operator is the Laplacian. Heuristically, the Laplacian serves as a toy model when studying something related to Elliptic Operators. So let's consider the Laplacian on one-dimensional Euclidean space $latex \mathbb R$</p>
+<p>Let's start by reviewing briefly about Elliptic operators. The simplest example of an Elliptic operator is the Laplacian. Heuristically, the Laplacian serves as a toy model when studying something related to Elliptic Operators. So let's consider the Laplacian on one-dimensional Euclidean space $\mathbb R$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \Delta = \dfrac{\partial^2}{\partial x^2}.$</p>
+<p class="has-text-align-center">$\Delta = \dfrac{\partial^2}{\partial x^2}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>We have that the Fourier transform of $latex \Delta u$ </p>
+<p>We have that the Fourier transform of $\Delta u$ </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \displaystyle \mathcal{F}(\Delta u)(\xi) = \dfrac{1}{\sqrt{2\pi}} \int_{\mathbb R} \Delta u(x) e^{-i\xi x} dx = (i\xi)^2 \dfrac{1}{\sqrt{2\pi}} \int_{\mathbb R} u(x) e^{-i\xi x} dx  = -|\xi|^2 \mathcal{F}(u). $ </p>
+<p class="has-text-align-center">$\displaystyle \mathcal{F}(\Delta u)(\xi) = \dfrac{1}{\sqrt{2\pi}} \int_{\mathbb R} \Delta u(x) e^{-i\xi x} dx = (i\xi)^2 \dfrac{1}{\sqrt{2\pi}} \int_{\mathbb R} u(x) e^{-i\xi x} dx  = -|\xi|^2 \mathcal{F}(u). $ </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>The factor $latex -|\xi|^2$ is called the <strong>total symbol</strong> of the Laplacian $latex \Delta$. By applying the inverse Fourier transform on both sides, we obtain that </p>
+<p>The factor $-|\xi|^2$ is called the <strong>total symbol</strong> of the Laplacian $\Delta$. By applying the inverse Fourier transform on both sides, we obtain that </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \Delta u(x) = \dfrac{1}{2\pi} \iint_{\mathbb R \times \mathbb R} e^{i(x-y)\xi} (-|\xi|^2) u(y)dy d\xi. $ (1)</p>
+<p class="has-text-align-center">$\Delta u(x) = \dfrac{1}{2\pi} \iint_{\mathbb R \times \mathbb R} e^{i(x-y)\xi} (-|\xi|^2) u(y)dy d\xi. $ (1)</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Generally, for an arbitrary differential operator of order $latex k$ on $latex \mathbb R^n , P = \sum_ {|\alpha| \leq k} a_{\alpha} (x) D^{\alpha},$  it can be proved that </p>
+<p>Generally, for an arbitrary differential operator of order $k$ on $\mathbb R^n , P = \sum_ {|\alpha| \leq k} a_{\alpha} (x) D^{\alpha},$  it can be proved that </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"left"} --></p>
-<p class="has-text-align-left">$latex \displaystyle Pu(x) = \mathcal{F}^{-1}( \sigma(P)(x,\xi) \mathcal{F}(Pu))(x) = \dfrac{1}{(2\pi)^{n}} \iint e^{i(x-y) \cdot \xi} \sigma(P)(x,\xi) u(y) dy d\xi,  \forall u \in \mathcal{S}(\mathbb R^n) , $ (2)</p>
+<p class="has-text-align-left">$\displaystyle Pu(x) = \mathcal{F}^{-1}( \sigma(P)(x,\xi) \mathcal{F}(Pu))(x) = \dfrac{1}{(2\pi)^{n}} \iint e^{i(x-y) \cdot \xi} \sigma(P)(x,\xi) u(y) dy d\xi,  \forall u \in \mathcal{S}(\mathbb R^n) , $ (2)</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"left"} --></p>
-<p class="has-text-align-left">where the total symbol $latex \sigma(P)(x,\xi) = \sum_{|\alpha| \leq k} a_{\alpha}(x) i^{|\alpha|} \xi^{\alpha}$ is simply a polynomial in $latex \xi$ with coefficients depending on $latex x$ obtained by replacing the differentiation $latex D^{\alpha}$ by $latex (i \xi)^{\alpha}$ . For convenience, we always assume the differential operators acting on Schwarz functions. The leading term of $latex \sigma(P)(x,\xi)$, $latex \sum_{|\alpha|=k} a_{\alpha}(x) \xi^{\alpha}$ denoted by $latex \sigma_{k} (P)$, is called the <strong>principal symbol</strong> of $latex P$.  An important property of the principal symbol map is that it is a group homomorphism of differential operators on $latex \mathbb R^n$. That is if $latex D_1,D_2$ are differential operators of orders $latex \ell_1, \ell_2$ respectively, then </p>
+<p class="has-text-align-left">where the total symbol $\sigma(P)(x,\xi) = \sum_{|\alpha| \leq k} a_{\alpha}(x) i^{|\alpha|} \xi^{\alpha}$ is simply a polynomial in $\xi$ with coefficients depending on $x$ obtained by replacing the differentiation $D^{\alpha}$ by $(i \xi)^{\alpha}$ . For convenience, we always assume the differential operators acting on Schwarz functions. The leading term of $\sigma(P)(x,\xi)$, $\sum_{|\alpha|=k} a_{\alpha}(x) \xi^{\alpha}$ denoted by $\sigma_{k} (P)$, is called the <strong>principal symbol</strong> of $P$.  An important property of the principal symbol map is that it is a group homomorphism of differential operators on $\mathbb R^n$. That is if $D_1,D_2$ are differential operators of orders $\ell_1, \ell_2$ respectively, then </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \sigma_{\ell_1+ \ell_2}(D_2 \circ D_1) = \sigma_{\ell_2}(D_2) \cdot \sigma_{\ell_1}(D_1).  $ (3)</p>
+<p class="has-text-align-center">$\sigma_{\ell_1+ \ell_2}(D_2 \circ D_1) = \sigma_{\ell_2}(D_2) \cdot \sigma_{\ell_1}(D_1).  $ (3)</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Although the Laplacian is not invertible, its principal symbol is if $latex \xi \neq 0$. In general, we call a differential operator of order  $latex k, P$ <strong>elliptic</strong> if its principal symbol $latex \sigma_k(P)(x,\xi)$ is invertible for every $latex \xi \neq 0$. A natural question to ask is whether there is an operator such that its symbol is the inverse of Laplacian's. It seems odd, but by (3), if it exists, this operator must be of order -2. It motivates us to define a class of differential operators in a broader sense. </p>
+<p>Although the Laplacian is not invertible, its principal symbol is if $\xi \neq 0$. In general, we call a differential operator of order  $k, P$ <strong>elliptic</strong> if its principal symbol $\sigma_k(P)(x,\xi)$ is invertible for every $\xi \neq 0$. A natural question to ask is whether there is an operator such that its symbol is the inverse of Laplacian's. It seems odd, but by (3), if it exists, this operator must be of order -2. It motivates us to define a class of differential operators in a broader sense. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p><strong>Oscillatory integral </strong></p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>As in the expression (2), by an abuse of notation, the action of the differential operator $latex P$ can be viewed as the action of the <strong>oscillatory integral</strong> $latex \int e^{i(x-y)\cdot \xi} \sigma(P)(x,\xi) d\xi$ by mean of distribution although this integral might not be absolutely convergent. With this correlation, we can define operators called <strong>pseudodifferential operators</strong> in terms of oscillatory integrals. The key point is to start with what we want to end up with. Let $latex U \subset \mathbb R^n$ be an open set and $latex r \in \mathbb R$ a real number. A function $latex u \in C^{\infty}(U \times \mathbb R^n)$ is a symbol of order $latex r$, denoted by $latex a \in S^r(U ; \mathbb R^n)$, if for all multi-indices $latex \alpha, \beta$ there is a constant $latex C_{\alpha, \beta}$ such that</p>
+<p>As in the expression (2), by an abuse of notation, the action of the differential operator $P$ can be viewed as the action of the <strong>oscillatory integral</strong> $\int e^{i(x-y)\cdot \xi} \sigma(P)(x,\xi) d\xi$ by mean of distribution although this integral might not be absolutely convergent. With this correlation, we can define operators called <strong>pseudodifferential operators</strong> in terms of oscillatory integrals. The key point is to start with what we want to end up with. Let $U \subset \mathbb R^n$ be an open set and $r \in \mathbb R$ a real number. A function $u \in C^{\infty}(U \times \mathbb R^n)$ is a symbol of order $r$, denoted by $a \in S^r(U ; \mathbb R^n)$, if for all multi-indices $\alpha, \beta$ there is a constant $C_{\alpha, \beta}$ such that</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \displaystyle \sup_{U} |D_{x}^{\alpha} D_{\xi}^{\beta} a(x, \xi)| \leq C_{\alpha, \beta} (\sqrt{1+ |\xi|^2})^{r - |\beta|}.$</p>
+<p class="has-text-align-center">$\displaystyle \sup_{U} |D_{x}^{\alpha} D_{\xi}^{\beta} a(x, \xi)| \leq C_{\alpha, \beta} (\sqrt{1+ |\xi|^2})^{r - |\beta|}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Given a symbol $latex a \in S^r(U;\mathbb R^n)$, we want to make sense of the oscillatory integral </p>
+<p>Given a symbol $a \in S^r(U;\mathbb R^n)$, we want to make sense of the oscillatory integral </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \int e^{i(x-y)\cdot \xi} a(x, \xi) d\xi$</p>
+<p class="has-text-align-center">$\int e^{i(x-y)\cdot \xi} a(x, \xi) d\xi$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>as a distribution. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>The following basic fact is helpful. Recall that the integral $latex \displaystyle \int_{\mathbb R} (\sqrt{1+|\xi|^2})^{\ell} d\xi &lt; \infty$ iff $latex \ell &lt; -n$.  The action of the oscillatory integral is </p>
+<p>The following basic fact is helpful. Recall that the integral $\displaystyle \int_{\mathbb R} (\sqrt{1+|\xi|^2})^{\ell} d\xi &lt; \infty$ iff $\ell &lt; -n$.  The action of the oscillatory integral is </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \displaystyle \phi \in C^{\infty}_{c}(U) \mapsto \lim_{\epsilon \to 0} \dfrac{1}{(2\pi)^n} \int e^{i(x-y)\cdot \xi} \psi(\epsilon \xi) a(x,\xi) \phi(x) d\xi dx,$ (4)</p>
+<p class="has-text-align-center">$\displaystyle \phi \in C^{\infty}_{c}(U) \mapsto \lim_{\epsilon \to 0} \dfrac{1}{(2\pi)^n} \int e^{i(x-y)\cdot \xi} \psi(\epsilon \xi) a(x,\xi) \phi(x) d\xi dx,$ (4)</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>where $latex \psi \in C^{\infty}_{c}(\mathbb R^n)$ is a cut-off function which is equal to 1 in a neighbourhood of the origin. It is easy to check this is well-defined by integration by parts and the following observation</p>
+<p>where $\psi \in C^{\infty}_{c}(\mathbb R^n)$ is a cut-off function which is equal to 1 in a neighbourhood of the origin. It is easy to check this is well-defined by integration by parts and the following observation</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex (1+ \xi \cdot D_x) e^{i(x-y)\cdot \xi} = (1+|\xi|^2) e^{i(x-y)\cdot \xi}.$</p>
+<p class="has-text-align-center">$(1+ \xi \cdot D_x) e^{i(x-y)\cdot \xi} = (1+|\xi|^2) e^{i(x-y)\cdot \xi}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>A pseudodifferential operator $latex \mathcal{K}$ of order $latex r$ is defined as some oscillatory integral </p>
+<p>A pseudodifferential operator $\mathcal{K}$ of order $r$ is defined as some oscillatory integral </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \mathcal{K} = \dfrac{1}{(2\pi)^n} \int e^{i(x-y)\cdot \xi} a(x,\xi) d\xi$ </p>
+<p class="has-text-align-center">$\mathcal{K} = \dfrac{1}{(2\pi)^n} \int e^{i(x-y)\cdot \xi} a(x,\xi) d\xi$ </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>for $latex a$ is a symbol of order $latex r$. </p>
+<p>for $a$ is a symbol of order $r$. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p><!-- /wp:paragraph --></p>

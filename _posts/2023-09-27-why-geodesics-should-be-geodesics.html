@@ -36,25 +36,25 @@ permalink: "/2023/09/27/why-geodesics-should-be-geodesics/"
 <p>As we may have heard about geodesics, they are locally minimizing curves on a curved space, or more precisely a manifold. For example, the straight lines are geodesics on flat Euclidean spaces, or the arcs of equators are geodesics on the sphere, etc. However, a mechanical point of view is that geodesics in nature are trajectories of a particle traveling in a free space, that is the potential is zero. In General Relativity, we have the important equivalence principle stating that a motion is independent of coordinates of the spacetime. What it means? It means that every motion can be regarded as the motion in "free space" by the change of the coordinate systems. A further consequence is that trajectories of motions in spacetime should be geodesics. Now I am going to convince you of the second point of geodesics above with the following arguments. The next part would be full of mathematics. Consider skipping if you want. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>I will start by recalling the definition of geodesics in Riemannian geometry context. Let $latex (M,g)$ be a Riemannian manifold and $latex \nabla$ be the Levi-Civita connection. The connection plays a similar role as the directional derivatives on the curved spaces. Once we have a connection, we can define the notion called parallel transport on a curve. Given a curve $latex \gamma(t)$ on the manifold $latex M$, a vector field $latex V(t)$ along this curve is parallel transported if it satisfies </p>
+<p>I will start by recalling the definition of geodesics in Riemannian geometry context. Let $(M,g)$ be a Riemannian manifold and $\nabla$ be the Levi-Civita connection. The connection plays a similar role as the directional derivatives on the curved spaces. Once we have a connection, we can define the notion called parallel transport on a curve. Given a curve $\gamma(t)$ on the manifold $M$, a vector field $V(t)$ along this curve is parallel transported if it satisfies </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \nabla_{\dot{\gamma}(t)} V(t) =0.$</p>
+<p class="has-text-align-center">$\nabla_{\dot{\gamma}(t)} V(t) =0.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>What does this equation say? It says that $latex V$ remains "unchanged" following the tangent directions of $latex \gamma$. </p>
+<p>What does this equation say? It says that $V$ remains "unchanged" following the tangent directions of $\gamma$. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>A curve $latex \gamma$ on $latex M$ is said to be a geodesic if the tangent vector field to $latex \gamma$ is parallel transported along itself, i.e.</p>
+<p>A curve $\gamma$ on $M$ is said to be a geodesic if the tangent vector field to $\gamma$ is parallel transported along itself, i.e.</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \nabla_{\dot{\gamma}(t)} \dot{\gamma}(t) =0.$</p>
+<p class="has-text-align-center">$\nabla_{\dot{\gamma}(t)} \dot{\gamma}(t) =0.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>The LHS is analogous to the "second derivative" of $latex \gamma$ and hence this equation somehow describes the free motion. In particular, when $latex M= \mathbb R^n$, this equation becomes </p>
+<p>The LHS is analogous to the "second derivative" of $\gamma$ and hence this equation somehow describes the free motion. In particular, when $M= \mathbb R^n$, this equation becomes </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \ddot{\gamma}(t) =0.$</p>
+<p class="has-text-align-center">$\ddot{\gamma}(t) =0.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>It is indeed the equation describing the free motion in classical mechanics. </p>
@@ -66,33 +66,33 @@ permalink: "/2023/09/27/why-geodesics-should-be-geodesics/"
 <p>First of all, we need to answer the following questions. Which elements prescribe a motion? When talking about the motion of a particle, what we care about is the position and the momentum of that particle at a certain time. Therefore, we need at least two kinds of coordinates in order to describe a motion, the first one is the position coordinates, and the second one is momentum coordinates. We want to make sense mathematically what it means. That is where the symplectic geometry comes in. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>In classical mechanics, the position of a mechanical system can be specified by a point of a smooth manifold $latex M$ which is called the <em>configuration space</em>. the momentum at position $latex q \in M$ is specified by a vector $latex p$ in the cotangent space $latex T_q^* M$. Then the cotangent bundle $latex T^* M$ which is called the <em>phase space</em> encodes the data of position-momentum of systems. In other words, the trajectory of a motion is in nature the projection of some curve in the phase space onto the configuration space. Another important element that decides a mechanical system is the <em>Hamiltonian</em>. Hamilton or in other words the total energy of the system is a smooth function on cotangent bundle $latex T^* M$. The Hamiltonian can always be written as </p>
+<p>In classical mechanics, the position of a mechanical system can be specified by a point of a smooth manifold $M$ which is called the <em>configuration space</em>. the momentum at position $q \in M$ is specified by a vector $p$ in the cotangent space $T_q^* M$. Then the cotangent bundle $T^* M$ which is called the <em>phase space</em> encodes the data of position-momentum of systems. In other words, the trajectory of a motion is in nature the projection of some curve in the phase space onto the configuration space. Another important element that decides a mechanical system is the <em>Hamiltonian</em>. Hamilton or in other words the total energy of the system is a smooth function on cotangent bundle $T^* M$. The Hamiltonian can always be written as </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
 <p class="has-text-align-center">Hamiltonian = Kinetic energy + Potential energy.</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Let's assume that $latex M$ can be equipped with a Riemannian metric $latex g$ so that it becomes a Riemannian manifold. Define the following Hamiltonian $latex H: T^*M \rightarrow \mathbb R$ by $latex H(q,p) := \frac{1}{2} g_q(p,p)$. When $latex g$ is the Euclidean metric, this Hamiltonian is precisely the Hamiltonian for free motion. </p>
+<p>Let's assume that $M$ can be equipped with a Riemannian metric $g$ so that it becomes a Riemannian manifold. Define the following Hamiltonian $H: T^*M \rightarrow \mathbb R$ by $H(q,p) := \frac{1}{2} g_q(p,p)$. When $g$ is the Euclidean metric, this Hamiltonian is precisely the Hamiltonian for free motion. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>The cotangent bundle can be equipped by the canonical symplectic form $latex \omega$ as follows. Firstly, we define a 1-form on $latex T^*M$ that is called the <em>tautological form</em> $latex \alpha$ by </p>
+<p>The cotangent bundle can be equipped by the canonical symplectic form $\omega$ as follows. Firstly, we define a 1-form on $T^*M$ that is called the <em>tautological form</em> $\alpha$ by </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \alpha_{(q,p)} (v) :=p( T\pi_{(q,p)}(v)),$ for $latex (q,p) \in T^*M, v \in T(T^*M)$,</p>
+<p class="has-text-align-center">$\alpha_{(q,p)} (v) :=p( T\pi_{(q,p)}(v)),$ for $(q,p) \in T^*M, v \in T(T^*M)$,</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>where $latex \pi: T^*M \rightarrow M$ is the natural projection. Then we define $latex \omega: = d \alpha$. It can be readily verified that $latex \omega$ is a symplectic form. Furthermore, in a local coordinate $latex (x, \xi)$ of the cotangent bundle $latex T^*M$, $latex \omega$ can be expressed as </p>
+<p>where $\pi: T^*M \rightarrow M$ is the natural projection. Then we define $\omega: = d \alpha$. It can be readily verified that $\omega$ is a symplectic form. Furthermore, in a local coordinate $(x, \xi)$ of the cotangent bundle $T^*M$, $\omega$ can be expressed as </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \omega = \sum_{i} d\xi_i \wedge dx_i.$</p>
+<p class="has-text-align-center">$\omega = \sum_{i} d\xi_i \wedge dx_i.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Now we define the following vector field $latex X$ on $latex T^*M$ by</p>
+<p>Now we define the following vector field $X$ on $T^*M$ by</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph {"align":"center"} --></p>
-<p class="has-text-align-center">$latex \omega(X, \cdot) = dH(\cdot).$</p>
+<p class="has-text-align-center">$\omega(X, \cdot) = dH(\cdot).$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>One thing that might surprise you is that geodesics on configuration space $latex M$ are actually the projection of integral curves of $latex X$ onto $latex M$. However, it still remains to show that these two definitions of geodesics are consistent. I will come back to do that in subsequent posts. </p>
+<p>One thing that might surprise you is that geodesics on configuration space $M$ are actually the projection of integral curves of $X$ onto $M$. However, it still remains to show that these two definitions of geodesics are consistent. I will come back to do that in subsequent posts. </p>
 <p><!-- /wp:paragraph --><br />
 </body></html></p>

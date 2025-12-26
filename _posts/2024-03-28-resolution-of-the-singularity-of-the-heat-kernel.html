@@ -38,82 +38,82 @@ permalink: "/2024/03/28/resolution-of-the-singularity-of-the-heat-kernel/"
 <p>The heat equation </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \left\{ \begin{aligned} (\partial_t+ \Delta) u &amp;=0 \\ u|_{t=0} &amp;=u_0 \end{aligned} \right.  $</p>
+<p>$\left\{ \begin{aligned} (\partial_t+ \Delta) u &amp;=0 \\ u|_{t=0} &amp;=u_0 \end{aligned} \right.  $</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>is one of the most fundamental equations. It describes how heat flow is transfered through the space and time. Every solution of the heat equation can be represented uniquely by its integral kernel $latex H(t,x,y)$, </p>
+<p>is one of the most fundamental equations. It describes how heat flow is transfered through the space and time. Every solution of the heat equation can be represented uniquely by its integral kernel $H(t,x,y)$, </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \displaystyle u(x,t) = \int H(t,x,y) u_0(y) dy,$ </p>
+<p>$\displaystyle u(x,t) = \int H(t,x,y) u_0(y) dy,$ </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>which is known as the <strong>heat kernel</strong>. Once you know $latex H(t,x,y)$, you can solve the heat equation, even for the inhomogeneous case </p>
+<p>which is known as the <strong>heat kernel</strong>. Once you know $H(t,x,y)$, you can solve the heat equation, even for the inhomogeneous case </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \left\{ \begin{aligned} (\partial_t+ \Delta) v&amp;=f(x,t) \\ v|_{t=0}&amp;=v_0 \end{aligned} \right.  $</p>
+<p>$\left\{ \begin{aligned} (\partial_t+ \Delta) v&amp;=f(x,t) \\ v|_{t=0}&amp;=v_0 \end{aligned} \right.  $</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>since </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p> $latex \displaystyle v(x,t)= \int H(t,x,y)v_0(y)dy + \int_{0}^{t} \int H(t-s,x,y)f(s,y) dy ds. $</p>
+<p> $\displaystyle v(x,t)= \int H(t,x,y)v_0(y)dy + \int_{0}^{t} \int H(t-s,x,y)f(s,y) dy ds. $</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>The heat kernel surprisingly is a useful tool in Geometric Analysis since it contains a lot of geometric information. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>On Euclidean space $latex \mathbb R^n$, the heat kernel can be written explicitly  </p>
+<p>On Euclidean space $\mathbb R^n$, the heat kernel can be written explicitly  </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \displaystyle H(t,x,y)= \frac{1}{(4\pi t)^{n/2}} \exp\left( -\dfrac{|x-y|^2}{4t}\right).$</p>
+<p>$\displaystyle H(t,x,y)= \frac{1}{(4\pi t)^{n/2}} \exp\left( -\dfrac{|x-y|^2}{4t}\right).$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>It can be seen immediately that $latex H(t,x,y)$ is smooth if $latex t&gt;0$. As $latex t \to 0$, $latex H$ vanishes exponentially away from the diagonal line $latex \text{diag}_{\mathbb R^n}= \{x=y\}$.  However, the blow-up arises as we approach </p>
+<p>It can be seen immediately that $H(t,x,y)$ is smooth if $t&gt;0$. As $t \to 0$, $H$ vanishes exponentially away from the diagonal line $\text{diag}_{\mathbb R^n}= \{x=y\}$.  However, the blow-up arises as we approach </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \{0\} \times \text{diag}_{\mathbb R^n}. $</p>
+<p>$\{0\} \times \text{diag}_{\mathbb R^n}. $</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>For instance, for any $latex z \in \mathbb R^n$, $latex t^{n/2} H(t,x,y) \to \exp \left(-\dfrac{|z|}{4} \right)$ as we approach this set along the curve $latex (t, x+t^{1/2}z, x)$. </p>
+<p>For instance, for any $z \in \mathbb R^n$, $t^{n/2} H(t,x,y) \to \exp \left(-\dfrac{|z|}{4} \right)$ as we approach this set along the curve $(t, x+t^{1/2}z, x)$. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>In this post, I am introducing a basic method that helps us to understand the singularity at $latex \{0\} \times \text{diag}_{\mathbb R^n}$.  </p>
+<p>In this post, I am introducing a basic method that helps us to understand the singularity at $\{0\} \times \text{diag}_{\mathbb R^n}$.  </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>First, we introduce the following "parabolic" polar coordinate. Define </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \mathbb S_{P} := \{(\theta,\omega) \in \mathbb R^{+}\times \mathbb R^n: \theta + |\omega|^2=1\}.$</p>
+<p>$\mathbb S_{P} := \{(\theta,\omega) \in \mathbb R^{+}\times \mathbb R^n: \theta + |\omega|^2=1\}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Any point in coordinates $latex (t,x,y) \in \mathbb R^+ \times \mathbb R^n \times \mathbb R^n$ can be written in the coordinates $latex (r, \theta, \omega, x) \in H \mathbb R^n:= \mathbb R^+ \times \mathbb S_{P} \times \mathbb R^n$ as </p>
+<p>Any point in coordinates $(t,x,y) \in \mathbb R^+ \times \mathbb R^n \times \mathbb R^n$ can be written in the coordinates $(r, \theta, \omega, x) \in H \mathbb R^n:= \mathbb R^+ \times \mathbb S_{P} \times \mathbb R^n$ as </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex t= r^2 \theta, x=x, y=x-r\omega$, and $latex r=\sqrt{t+|x-y|^2}.$</p>
+<p>$t= r^2 \theta, x=x, y=x-r\omega$, and $r=\sqrt{t+|x-y|^2}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>In these coordinates, the heat kernal can be rewritten as </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex (4\pi t)^{n/2} H(r,\theta, \omega, x) = \exp\left(-\dfrac{|\omega|^2}{4\theta}\right).$</p>
+<p>$(4\pi t)^{n/2} H(r,\theta, \omega, x) = \exp\left(-\dfrac{|\omega|^2}{4\theta}\right).$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>For $latex (\theta, \omega) \in \mathbb S_{P}$, $latex \theta, \omega$ do not vanish simultaneously, hence this function is now smooth. </p>
+<p>For $(\theta, \omega) \in \mathbb S_{P}$, $\theta, \omega$ do not vanish simultaneously, hence this function is now smooth. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>Moreover, the change of coordinates above is nondegenerate iff $latex r \neq 0$. Interestingly, the set $latex \{r=0\}$ in the parabolic polar coordinate turns out to correspond to the diagonal line $latex \{0\} \times \text{diag}_{\mathbb R^n}$ in the original coordinates. </p>
+<p>Moreover, the change of coordinates above is nondegenerate iff $r \neq 0$. Interestingly, the set $\{r=0\}$ in the parabolic polar coordinate turns out to correspond to the diagonal line $\{0\} \times \text{diag}_{\mathbb R^n}$ in the original coordinates. </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>To be more rigorous, the natural map </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex \begin{aligned} \beta: H \mathbb R^n &amp;\rightarrow \mathbb R^+ \times \mathbb R^n \times \mathbb R^n \\ (r, \theta, \omega, x) &amp;\mapsto (r^2 \theta, x, x-r\omega) \end{aligned}$</p>
+<p>$\begin{aligned} \beta: H \mathbb R^n &amp;\rightarrow \mathbb R^+ \times \mathbb R^n \times \mathbb R^n \\ (r, \theta, \omega, x) &amp;\mapsto (r^2 \theta, x, x-r\omega) \end{aligned}$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>restricts to a diffeomorphism </p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
-<p>$latex H\mathbb R^n \setminus \{r=0\} \longrightarrow  (\mathbb R^+ \times \mathbb R^n \times \mathbb R^n) \setminus (\{0\} \times \text{diag}_{\mathbb R^n}.$</p>
+<p>$H\mathbb R^n \setminus \{r=0\} \longrightarrow  (\mathbb R^+ \times \mathbb R^n \times \mathbb R^n) \setminus (\{0\} \times \text{diag}_{\mathbb R^n}.$</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:paragraph --></p>
 <p>For this reason, we say that these parabolic polar coordinates <em>resolves the singularity</em> of the heat kernel. </p>
