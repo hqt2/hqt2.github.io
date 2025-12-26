@@ -1,0 +1,96 @@
+---
+layout: post
+title: Decomposition of Curvature Tensors
+date: 2021-08-11 17:27:52.000000000 -05:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Representation Theory
+- Riemannian Geometry
+tags:
+- invariant theory
+meta:
+  _publicize_job_id: '61752306087'
+  timeline_notification: '1628702873'
+  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:21324813;s:58:"https://twitter.com/huyaguerovn/status/1425509287850356741";}}
+  _publicize_done_20987093: '1'
+  _wpas_done_21324813: '1'
+  _last_editor_used_jetpack: block-editor
+  publicize_twitter_user: huyaguerovn
+author:
+  login: trqhuy
+  email: tranquanghuy11061998@gmail.com
+  display_name: trqhuy
+  first_name: Tran
+  last_name: Huy
+permalink: "/2021/08/11/decomposition-of-curvature-tensors/"
+---
+<p><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><br />
+<!-- wp:paragraph --><html><body></p>
+<p>It's been a long time since I last posted something here. Today is a rainny day. It is special to make a few notes. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>An interesting fact has been used regularly in Riemannian geometry is that the curvature tensor of a Riemannian manifold splits naturally into three orthogonal components, involving respectively its scalar curvature, trace-less part of its Ricci tensor and its Weyl tensor. This is classical and well known but surprisingly, this does not appear in most textbooks on Riemannian Geometry. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The mystery behind this fact comes from one of the most powerful tools in mathematics, <em>Representation Theory</em>. The key point is that the bundle in which the curvature tensor lives is not irreducible under the action of orthogonal group and consequently is decomposed into irreducible components. These gives a canonical decomposition of the curvature tensor. In this post, I am going to show explicitly how it actually works.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let us get down to the details. For now, we always assume that $latex (M,g)$ is an $latex n$-dimensional Riemannian manifold. It is well known that the curvature tensor $latex \mathrm{Rm}$ is decomposed into three components</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>$latex  \mathrm{Rm} = \frac{\mathrm{Scal}}{2n(n-1)} g  \mathbin{\bigcirc\mspace{-15mu}\wedge\mspace{3mu}} g + \frac{1}{n-2} g \mathbin{\bigcirc\mspace{-15mu}\wedge\mspace{3mu}} \stackrel{\circ}{\mathrm{Ric}} + W$</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>where $latex  \stackrel{\circ}{\mathrm{Ric}}  = \mathrm{Ric} -\frac{\mathrm{Scal}}{n} g$ denotes the traceless Ricci tensor, $latex W$ denotes Weyl tensor and  $latex \mathbin{\bigcirc\mspace{-15mu}\wedge\mspace{3mu}}$ denotes the Kulkarni-Nomizu product. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>First, I want to recall some facts in terms of the curvature tensor of a Riemannian manifold. The curvature tensor satisfies the following properties: </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<!-- wp:list-item --></p>
+<li>$latex \mathrm{Rm}(X,Y,Z,W)=-\mathrm{Rm}(Y,X,Z,W)=\mathrm{Rm}(Z,W,X,Y)$.</li>
+<p><!-- /wp:list-item --></p>
+<p><!-- wp:list-item --></p>
+<li>(The first Bianchi identity) $latex \mathrm{Rm}(X,Y,Z,W)+\mathrm{Rm}(Y,Z,X,W)+\mathrm{Rm}(Z,X,Y,W)=0, \forall X,Y,Z,W \in \Gamma(TM)$. </li>
+<p><!-- /wp:list-item -->
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p>The first property means that we can consider the curvature tensor as a section of the subbundle $latex \mathrm{Sym}^2(\Lambda^2 M)$ of the vector bundle $latex \bigotimes^4 TM$. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now, forget about the manifold structure. Let $latex (E,g)$ be an $latex n$-dimensional Euclidean vector space. We can understand the general vector space $latex E$ as the tangent space of the manifold. Denote $latex \mathrm{Sym}^{2}_{b} (\Lambda^2 E)$  as the subspace of $latex \mathrm{Sym}^2 (\Lambda^2 E)$ contains all of elements satisfying the first Bianchi identity. A vector in  $latex \mathrm{Sym}^{2}_{b} (\Lambda^2 E)$ is called an <em>algebraic curvature tensor</em>. If we can prove that the vector space of algebraic curvature tensor as a $latex O(n)$-module can be decomposed into irreducible components, then the decomposition of the curvature tensor follows. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We consider the representation of the general linear group $latex GL(E)$ on the vector space $latex T^{(k,l)} E= \bigotimes^k E^{*} \otimes \bigotimes^l E$. The action of $latex GL(E)$ on  $latex T^{(k,l)} E$ is as follows. For any $latex L \in GL(E)$, $latex \omega_1, \ldots, \omega_k \in E^{*}, e_1, \ldots, e_l \in E$,  </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>$latex L(\omega_1 \otimes \ldots \otimes \omega_k \otimes e_1 \otimes \ldots \otimes e_l)=(\omega_1 \circ L^{-1}) \otimes \ldots \otimes (\omega_k \circ L^{-1}) \otimes (L e_1) \otimes \ldots \otimes (L e_l).$</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The metric $latex g$ induces a canonical identification between $latex E$ and $latex E^{*}$. If $latex L$ belongs to the orthogonal group $latex O(n)$, then by $latex L^{-1}=L^{T}$, $latex E$ and $latex E^{*}$ are isomorphic as $latex O(n)$-modules. Therefore, we may consider tensor products of $latex E$ only. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It is easy to check that $latex O(n)$-module $latex E$ is irreducible ( this means there is no proper subspace of $latex E$ invariant under the action of the group $latex O(n)$). However, it is well known that $latex \bigotimes^2 E$ is not irreducible. So there might be a decomposition of $latex \bigotimes^2 E$ into irreducible components. I finish my post here by stating a result that answers this question. I will provide the proof for this result for the next posts. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:group --></p>
+<div class="wp-block-group"><!-- wp:block {"ref":289} /--></div>
+<p><!-- /wp:group --></p>
+<p><!-- wp:paragraph --></p>
+<p><strong>References:</strong></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[1] <a>Besse, Arthur L.</a> (2008). <em>Einstein Manifolds</em>. Classics in Mathematics. Berlin: Springer. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)">ISBN</a> <a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-74120-6">978-3-540-74120-6</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[2] H. Weyl, <em>Classical groups, their invariants and representations</em>, Prineton University Press, Princeton (1946). </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>[3] R.S.Hamilton, <em>Three manifolds with positive Ricci curvature</em>, J.Diff.Geom. <strong>17</strong>, 255-306 (1982).</p>
+<p><!-- /wp:paragraph --><br />
+</body></html></p>
