@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>An amazing trick · Vietnamese-Illini Math Guy</title>
+  <meta name="description" content="It &#x27;s been 2 weeks since I arrived in Hong Kong. I still cannot get used to the lifestyle here. Everything seems to be strange to me. Here I…">
+  <meta name="author" content="Trần Quang Huy">
+  <meta property="og:title" content="An amazing trick · Vietnamese-Illini Math Guy">
+  <meta property="og:description" content="It &#x27;s been 2 weeks since I arrived in Hong Kong. I still cannot get used to the lifestyle here. Everything seems to be strange to me. Here I…">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://hqt2.github.io/posts/an-amazing-trick.html">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∮</text></svg>">
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    window.__toggleTheme = function () {
+      var cur = root.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    };
+  })();
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="mark">∮</span> Vietnamese-Illini Math Guy</a>
+    <nav class="main" aria-label="Main">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../research.html">Research</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../notes.html" aria-current="page">Notes</a>
+        <a href="../links.html">Links</a>
+    </nav>
+    <button class="theme-toggle" type="button" onclick="window.__toggleTheme()" aria-label="Switch between light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <a class="backlink" href="../notes.html">← All notes</a>
+
+  <article>
+    <header class="post-header">
+      <h1>An amazing trick</h1>
+      <div class="post-meta">
+        <time datetime="2019-07-26">July 26, 2019</time>
+        <span class="dot">·</span><span class="pill">Analysis</span><span class="pill">PDEs</span><span class="pill">Ricci flow</span><span class="pill">Riemannian Geometry</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+<p>It 's been 2 weeks since I arrived in Hong Kong. I still cannot get used to the lifestyle here. Everything seems to be strange to me. Here I experience for the first time simultaneously loneliness, pressure, boredom, etc. Today is boring Sunday again. As usual, I get up and go to the library. I think it 's the best place that I can come to at the moment. Recently, I have tried to read a well-known Hamilton's paper that my advisor provided me. It 's really difficult paper for those who have just started to study Riemannian Geometry like me. I cannot virtually get anything from the paper these days. Fortunately, during the time I have struggled to understand the paper, I found a great trick that may help us reduce considerably our computation in terms of "tensorial" quantities. Walk on the campus and think about the paper, I thought it 's better to note something on my blog.</p>
+<p>First of all, I would like to mention the motivation of this post. Suppose $M$ is a Riemannian manifold, we concern about several geometric flows that derive from evolution equations like</p>
+<p style="text-align:center;">$\frac{\partial g}{\partial t} = v(t) $</p>
+<p>where $g(t)$'s is a family of Riemannian metric and $v(t)$'s is a family of some symmetric to tensor. In local coordinate, we may write equations as $\frac{\partial g_{ij}}{\partial t} = v_{ij}$ where $g=g_{ij} \mathrm{d}x^{i} \otimes \mathrm{d}x^{j}$ and $v=v_{ij} \mathrm{d}x^{i} \otimes \mathrm{d}x^{j}$. In several cases, we may be interested in finding the rate of change of Christoffel symbols $\Gamma_{ij}^{k} (t)$ 's.</p>
+<p>To understand this post, readers need to have some basic background on Riemannian Geometry. First of all, I would like to introduce a notion called <em style="color:var(--color-text);">geodesic normal coordinates. </em><span style="color:var(--color-text);">The following result states its existence.</span>
+<strong>Proposition </strong>Let $(M,g)$ be a Riemannian manifold. Then at every $p \in M$, there exists a local coordinate ${u_i}$ at p such that all of the following hold:
+1. $g_{ij}:=\delta_{ij}$ for any $i,j$ at the point $p$ ;
+2. $\Gamma_{ij}^{k}=0$ for any $i,j,k$ at $p$ ;
+3. $\frac{\partial g_{ij}}{\partial u^k} =0$ for any $i,j,k$ at $p$
+This local coordinate is called the <strong>geodesic normal coordinate</strong></p>
+<p>Now return to the main problem.  We fix a point and a time $(p, t_0)$. Choose the normal coordinate ${u^i}$ at $p$ respect to the metric $g(t_0)$.Recall that Christoffel symbols given by Levi-Civita connection as</p>
+<p style="text-align:center;">$\Gamma_{ij}^{k}=\frac{1}{2} g^{kl}\left(\frac{\partial g_{jl}}{\partial u^i}+\frac{\partial g_{il}}{\partial u^j}-\frac{\partial g_{ij}}{\partial u^l} \right) $</p>
+<p style="text-align:left;"><span style="color:var(--color-text);">differentiating to both sides, we have</span></p>
+<p style="text-align:left;"><span style="color:var(--color-text);">$\frac{\partial \Gamma_{ij}^{k}}{\partial t} = \frac{1}{2}\left(\frac{\partial g^{hl}}{\partial t} \right) \left( \frac{\partial g_{jl}}{\partial u^i}+\frac{\partial g_{il}}{\partial u^j}-\frac{\partial g_{ij}}{\partial u^l} \right) + \frac{1}{2}g^{kl}\left(\frac{\partial v_{jl}}{\partial u^i}+\frac{\partial v_{il}}{\partial u^j}-\frac{\partial v_{ij}}{\partial u^l} \right) $.</span></p>
+<p>That is where the amazing thing comes out. At the point $p$ with the normal coordinate, we can simplify our expression above by the fact that the term $\frac{1}{2}\left(\frac{\partial g^{hl}}{\partial t} \right) \left( \frac{\partial g_{jl}}{\partial u^i}+\frac{\partial g_{il}}{\partial u^j}-\frac{\partial g_{ij}}{\partial u^l} \right) $ vanishes.</p>
+<p>Therefore,</p>
+<p>$\frac{\partial \Gamma_{ij}^{k}}{\partial t} = \frac{1}{2}g^{kl}\left(\frac{\partial v_{jl}}{\partial u^i}+\frac{\partial v_{il}}{\partial u^j}-\frac{\partial v_{ij}}{\partial u^l} \right) $.</p>
+<p>Also, In the normal coordinate, due to the fact that Christoffel symbols vanish, the partial derivative will turn into the covariant derivative by</p>
+<p>$\partial_{k} v_{ij} = \frac{v_{ij}}{\partial u^k} - v_{lj}\Gamma_{ki}^{l}-v_{il}\Gamma_{kj}^{l}. $</p>
+<p>Finally, we get
+<span style="display:inline !important;float:none;background-color:#ffffff;color:#2c3338;cursor:text;font-family:'NotoSerif', Georgia, 'TimesNewRoman', Times, serif;font-size:16px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1.2em;orphans:2text-decoration:none;text-indent:0;text-transform:none;white-space:normal;word-spacing:0;text-align:left;">$\frac{\partial \Gamma_{ij}^{k}}{\partial t} = \frac{1}{2}g^{kl}\left(\partial_{i} v_{jl} +\partial_j v_{il}-\partial_l v_{ij} \right) $ at $p$. </span></p>
+<p>Now, we can see that the LHS is a (1,2)-tensor because the difference of Levi-Civita connections is actually a tensor ( readers can easily check it out by using the definition of Levi-Civita connection). Meanwhile, the RHS is also a tensor of the same kind as it is the contraction of other tensors. To sum up, the RHS and LHS now are independent of the choice of coordinate charts. Because the point $p$ vary arbitrarily, we eventually obtain that</p>
+<p>$\frac{\partial \Gamma_{ij}^{k}}{\partial t} = \frac{1}{2}g^{kl}\left(\partial_{i} v_{jl} +\partial_j v_{il}-\partial_l v_{ij} \right) $ for everywhere.</p>
+<p>Similarly, we can also establish variations of more complicated quantities such as (1,3)-, (0,4)-Riemmanian tensors, etc.</p>
+<p>If we take $v_{ij}=-2R_{ij}$, we get celebrated Ricci flow, that was proposed by Hamilton and then used by Perelman to solve famous Poincare conjecture. Such kinds of equalities are really important for analyzing the evolution of curvatures and by that way, Poincare conjecture was solved.</p>
+<div id="eJOY__extension_root"></div>
+    </div>
+  </article>
+
+  <nav class="post-nav">
+    <span></span>
+    <a href="dissertation.html">Dissertation →</a>
+  </nav>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="bar">
+    <div>© <span id="yr">2026</span> Trần Quang Huy · Department of Mathematics, UIUC</div>
+    <div class="foot-links">
+      <a href="mailto:hqt2@illinois.edu">hqt2@illinois.edu</a>
+      <a href="../about.html">Contact</a>
+      <a href="https://illinois.edu/">Illinois</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

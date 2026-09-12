@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exotic Spheres: Milnor is Not Dead! · Vietnamese-Illini Math Guy</title>
+  <meta name="description" content="Two weeks ago, while talking to a friend, due to my vague memory, I mistakenly said that Milnor had passed away about four or five years ago. That is…">
+  <meta name="author" content="Trần Quang Huy">
+  <meta property="og:title" content="Exotic Spheres: Milnor is Not Dead! · Vietnamese-Illini Math Guy">
+  <meta property="og:description" content="Two weeks ago, while talking to a friend, due to my vague memory, I mistakenly said that Milnor had passed away about four or five years ago. That is…">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://hqt2.github.io/posts/exotic-spheres-milnor-is-not-dead.html">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∮</text></svg>">
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    window.__toggleTheme = function () {
+      var cur = root.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    };
+  })();
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="mark">∮</span> Vietnamese-Illini Math Guy</a>
+    <nav class="main" aria-label="Main">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../research.html">Research</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../notes.html" aria-current="page">Notes</a>
+        <a href="../links.html">Links</a>
+    </nav>
+    <button class="theme-toggle" type="button" onclick="window.__toggleTheme()" aria-label="Switch between light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <a class="backlink" href="../notes.html">← All notes</a>
+
+  <article>
+    <header class="post-header">
+      <h1>Exotic Spheres: Milnor is Not Dead!</h1>
+      <div class="post-meta">
+        <time datetime="2025-12-22">December 22, 2025</time>
+        <span class="dot">·</span><span class="pill">Algebraic Topology</span><span class="pill">Topology</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+<p>Two weeks ago, while talking to a friend, due to my vague memory, I mistakenly said that Milnor had passed away about four or five years ago. That is why, in this post, I wish to correct my mistake and sincerely apologize to those who love Milnor, affirming that he is still alive. Moreover, the title serves as a metaphor for that his legacy still lives on through time. </p>
+
+<p>J.W.Milnor has known to be one of the most influential mathematicians of all time. He played a pioneering role in the development of mathematical fields such as differential topology, K-theory, and dynamical system. Throughout his career, he received many prestigious awards, including the Field Medal in 1962 and the Abel in 2011. In this post, I would like to discuss one of the breakthroughs that led to his Field Medal, which is the construction of exotic differentiable structures of the 7-dimensional sphere. </p>
+
+<h2>Background and Motivation</h2>
+
+<p>Topological manifolds are one of main themes in the study of topology.  They naturally generalize surfaces and curves to higher dimensions. They have proven to be an effective universal language for describing objects in nature. An important problem of topology is to classify topological manifolds up to homeomorphism. It comes down to the ideas that Poincaré had considered over a hundred years ago, which is nowadays known as the Poincaré conjecture. </p>
+
+<p>To bring analysis to manifolds, one must equip them with differentiable structures, thereby obtaining differentiable manifolds. Besides classifying topological structures, we also want to distinguish all possible differentiable structures. Given an underlying topological manifold, one natural question arises: how many differentiable structures can it admit? </p>
+
+<p>As the Poincaré conjecture was resolved by G.Perelman, we know that every closed simply-connected manifold is nothing but the 3-dimensional sphere. Moreover, a significant consequence of Perelman’s resolution is that the 3-dimensional sphere possesses a unique differentiable structure. As a natural generalization, we wonder if this is true for higher dimensional spheres? The answer is no, and was first disproved by Milnor. In 1956, Milnor published a paper in Annals [1] proving that there exists a differentiable manifold that is homeomorphic to $S^7$ but its differentiable structure differs from the standard differentiable structure of $S^7$.</p>
+
+<h2>Clutching Functions</h2>
+
+<p>The idea behind Milnor's construction is to realize $S^7$ as the total space of $S^3$-bundle over $S^4$. The key ingredient in this construction is <em>clutching functions</em>. $S^4$ can be described by gluing two copies of $\mathbb R^4$ along boundaries at infinity. In this way, two hemispheres of $S^4$ are identified as Euclidean spaces $\mathbb R^4$ via the stereographic projection. A vector bundle is completely determined if we know their transition maps. With that spirit, to construct a vector bundle over $S^4$, a natural way that we can think of is to glue two <em>trivial $\mathbb R^n$-bundles</em> over hemispheres with a suitable transition map. Since the overlap of two hemispheres deformation retracts onto the equator, a map from $S^3$ to $GL(n)$ is sufficient to encode the transition data. Moreover, If we reduce the structure group from $GL(n)$ to $SO(n)$, we obtain rank $n$ oriented vector bundles over $S^4$. A map from $S^3$ to $SO(n)$ is called a clutching function. It turns out that the vector bundle constructed in this way depends only on the homotopy class of the clutching function, that is two homotopic clutching functions result in isomorphic vector bundles. Conversely, every rank $n$ vector bundle over $S^4$ can in fact be constructed in this manner. That means there is a 1-1 correspondence </p>
+
+<p class="has-text-align-center">$[S^3, SO(n)]:= \pi_3(SO(n)) \simeq \mathrm{Vect}^n_{+} (S^4),$</p>
+
+<p>where $\mathrm{Vect}^{n}_{+}(S^4)$ is the set of isomorphic classes of rank $n$ oriented vector bundles over $S^4$.</p>
+
+<p>The case of $n=4$ is particularly intriguing. In dimension 4, $\mathbb R^4$ can be identified with the Quaternion algebra $\mathbb H$. Therefore, $S^3$ can be regarded as a subgroup of $SO(4)$, acting on the quaternion algebra $\mathbb H$ by left or right multiplication. It can be proven that $S^3 \times S^3$ is actually a double cover of $SO(4)$ with the covering map given by</p>
+
+<p class="has-text-align-center">$S^3 \times S^3 \rightarrow SO(4), (u,v) \mapsto (x \mapsto u\cdot x\cdot v),$</p>
+
+<p>where $\cdot $ stands for the quaternion multiplication. </p>
+
+<p>As a consequence, the third homotopy group $\pi_3(SO(4)) \cong \pi_3(S^3 \times S^3) \cong \mathbb Z \oplus \mathbb Z$. </p>
+
+<h2>Construction of Examples</h2>
+
+<p>The understanding of $SO(4)$ above provides an explicit method for constructing a vector bundle over $S^4$. Namely, for every $(k,l) \in \mathbb Z \oplus \mathbb Z \cong \pi_3(SO(4))$, we define a clutching function by $f_{kl}(u)(v) := u^k \cdot v \cdot u^l, \forall u \in S^3, v \in \mathbb H$. Let $\xi_{kl}$ denote the vector bundle associated with the clutching function $f_{kl}$. By equipping $\xi_{kl}$ with a metric, we can consider its sphere bundle $S(\xi_{kl})$. The total space of $S(\xi_{kl})$, denoted by $M_{kl}$, is a 7-dimensional differentiable manifold (since the clutching function is obviously smooth).  We are going to show that $M_{kl}$ is homeomorphic to $S^7$, but not diffeomorphic to $S^7$ with the standard differentiable structure. </p>
+
+<h2>Morse Theory: $M_{kl}$ is homeomorphic to $S^7$</h2>
+
+<p><em>Morse theory</em> is a powerful tool to study the topology of smooth manifolds by examining smooth functions on it. The topology of sublevel sets of a function change in a controlled way governed by the critical points of the function. The following theorem, attributed to Reeb, is useful in finding such a Morse function.</p>
+
+<blockquote>
+<p><strong>Theorem.</strong>( Reeb) If there exists a Morse function on an $n$-dimensional closed manifold $M$ with only two critical points, $M$ is homeomorphic to $S^n$.</p>
+</blockquote>
+
+<p>The intuition behind this result is as follows. Since $M$ is closed, two only critical points must be maximum and minimum, hence they are automatically non-degenerate. Their indices are in turn $\pm n$. By the Lemma of Morse, there are neighborhoods around these critical points that are $n$-cells. Since the topology changes only when passing through critical points—and since these critical points are merely a maximum and a minimum—the topology remains unchanged as the value varies between them. Consequently, the manifold $M$ is nothing but two $n$-cells glued along their boundaries, and hence is homeomorphic to $S^n$.</p>
+
+<p> To prove $M_{kl}$ is homeomorphic to $S^7$ for some $(k,l)$, we need to construct a Morse function as in the Theorem of Reeb. Recall from the clutching construction that $\xi_{kl}$, and hence $S(\xi_{kl})$, is trivialized over hemispheres of $S^4$. We can manipulate this by constructing functions defined on these local trivializations that agree on the overlap. Namely, the function can be defined as follows. </p>
+
+<p class="has-text-align-center">$f(x) = \dfrac{\Re(v)}{\sqrt{1+ |u|^2}} =\dfrac{\Re((u')(v')^{-1})}{\sqrt{1+ |(u')(v')^{-1}|^2}}, $</p>
+
+<p>where $x=(u,v) =(u',v') \in \mathbb R^{4}_{\pm} \times S^3$ are coordinates on  local trivializations over hemispheres, respectively, here $S^4$ is regarded as $\mathbb R^{4}_{+} \cup \mathbb R^{4}_{-}$. </p>
+
+<p>By using clutching functions as transition data, we can show that when $k+l=1$,  this function is globally defined as a smooth function. A direct computation using local expressions above proves that this function has only two critical point at $(u,v)=(0,\pm 1).$ Therefore, this shows that $M_{kl}$, when $k+l=1$, is homeomorphic to $S^7$. </p>
+
+<h2>Lambda Invariant: $M_{kl}$ is not diffeomorphic to $S^7$</h2>
+
+<p>In my opinion, this is the most beautiful part of Milnor’s proof. The idea relies on a simple observation that two diffeomorphic manifolds have isomorphic tangent bundles. Therefore, if we can find an invariant that helps distinguish tangent bundles, then two manifolds cannot be diffeomorphic. One effective tool that immediately comes to mind is characteristic classes, particularly Pontrjagin classes. However, since $H^4(S^7)=H^8(S^7)=0$, Pontrjagin classes are merely trivial. Thus we can't tell how different they are by just looking at Pontrjagin classes. <br><br>The following result provides us another point of view to attack the problem. R.Thom proved in [4] that every closed 7-manifold is the boundary of some 8-manifold. This theorem and all the constructions above are, in a way that I can’t explain, more or less linked to the number 7 (that’s what makes mathematics marvelous: everything is connected in a mysterious way). By the theorem of Thom, we are now shifting the gear and seeking an invariant associated with the 8-dimensional bounding manifold.</p>
+
+<p>Assume $B$ is an 8-manifold such that its boundary is $M$. An orientation of $B$ is a $\nu \in H_8(B,M)$ such that $\partial \nu =\mu$, where $\mu \in H_7(M)$ is an orientation of $M$. Then we can define the "intersection form" of $(B,M)$ as</p>
+
+<p class="has-text-align-center">$H^4(B,M)/ (\mathrm{torsion}) \times H^4(B,M)/(\mathrm{torsion}) \rightarrow \mathbb Z, (\alpha, \beta) \mapsto \langle \nu , \alpha \cup \beta \rangle.$</p>
+
+<p>The index $\sigma(B)$ of this quadratic form is called the <em>signature</em> of $B$. </p>
+
+<p>If we can assume further that $H^4(M)=H^3(M)=0$ ($S^7$ satisfies this), then the cohomological long exact sequence gives an isomorphism </p>
+
+<p class="has-text-align-center">$h: H^4(B,M) \rightarrow H^4(M). $</p>
+
+<p>This allows us to define "Pontrjagin number" of $B$ via $h$. Namely, define </p>
+
+<p class="has-text-align-center">$q(B):= \langle \nu, h^{-1}(p_1(B)^2) \rangle. $</p>
+
+<p>In his paper, Milnor introduced the lambda invariant as </p>
+
+<p class="has-text-align-center">$\lambda(M):=q(B)-2\sigma(B) \mod 7.$</p>
+
+<p>Why is $\lambda$ the invariant that we are looking for? What is the role of the modulo 7 in the definition? (again the number 7 occurred in an unexpected way). I am not sure about the line of thinking that led Milnor to this idea. Below are reasons why $\lambda(M)$ is the right thing to do. </p>
+
+<p>In order for $\lambda(M)$ is actually an invariant, it has to be independent of the choice of $B$. Assume there are two 8-manifolds $B,B'$ with the common boundary $M$. Gluing them along their boundaries using an orientation-reversing isomorphism, we obtain a closed 8-manifold $C$ with the induced orientation that is consistent with $B$'s and $B'$'s. The Hirzebruch Signature Theorem tells us that the signature of $C$</p>
+
+<p class="has-text-align-center">$\sigma(C) = \langle \nu, \frac{1}{45}(7p_2(C) -p_1(C)^2 \rangle. $</p>
+
+<p>Equivalently, </p>
+
+<p class="has-text-align-center">$3\sigma(C) = 45 \sigma(C) = - q(C) \mod 7$. </p>
+
+<p>(Maybe the modulo 7 appeared to make the this line simpler. It is enough to use the first Pontrjagin class only, we don't need the full strength of Pontrjagin classes).</p>
+
+<p>Therefore, </p>
+
+<p class="has-text-align-center">$\lambda(C) = 2q(C) -\sigma(C) = 0 \mod 7.$ </p>
+
+<p>As a standard argument using Mayer-Vietoris l.e.s, we arrive at that $0=\lambda(C) =\lambda(B)-\lambda(B')$. Therefore, $\lambda(M)$ is independent of the choice of $B$. </p>
+
+<p>We can now apply this to $M_{kl}$ by computing its lambda invariant. First, we need to pick a bounding manifold for $M_{kl}$. A natural candidate is the total space $B_{kl}$ of the $D^4$-bundle defined by $D(\xi_{kl}) := \{e \in \xi_{kl}| \|e\| \leq 1\}$. Since the bundle projection $\pi: B_{kl} \rightarrow S^4$ is a homotopy equivalence,  $H^4(B_{kl})= H^4(B_{kl}, M_{kl})= H^4(S^4)=\mathbb Z. $ Therefore, the intersection form is of rank 1, hence the signature is just 1 (for some choice of orientation). </p>
+
+<p>It is left to compute $q(B_{kl})$. As in the definition, it is crucial to know about the first Pontrjagin class of $B_{kl}$. One advantage of using the first Pontrjagin class is that the first Pontrjagin class of a Whitney sum is the sum of classes of summands. (This is a consequence of the Whitney sum property, and only true for $p_1$). Because the tangent bundle of $B_{kl}$ is isomorphic to that of $E_{kl}$, the total space of $\xi_{kl}$, their first Pontrjagin classes are the same. Since $E_{kl}$ is differentiable, we can always construct a flat connection on it. Therefore, we obtain the following decomposition into horizontal and vertical parts as</p>
+
+<p class="has-text-align-center">$TE_{kl} = \pi^* \xi_{kl} \oplus \pi^* TS^4.$</p>
+
+<p>The naturality and Whitney sum properties imply that </p>
+
+<p class="has-text-align-center">$p_1(E_{kl}) = \pi^*p_1(\xi_{kl}) + \pi^* p_1(S^4) = \pi^* p_1(\xi_{kl}).$</p>
+
+<p>The last equality used the fact that $S^4$ is stably trivial, and hence its Pontrjagin classes vanish. </p>
+
+<h2>Computing $p_1(\xi_{kl})$</h2>
+
+<p>Computations above showed the connection between the invariant we want to find and the first Pontrjagin class of $\xi_{kl}$. The last step is to explicitly compute it. It is straightforward from the clutching construction that $p_1(\xi_{kl})$ is linear in $k,l$ (This wasn't really obvious to me when I first read Milnor's paper. For a more detailed exposition, please refer to <a href="https://drive.google.com/file/d/1O6q50uu8vLUbCP6RiaNqnGlIA5EE-DPY/view">here</a>). If we interchange $k$ and $l$, an easy computation shows that the clutching function is</p>
+
+<p class="has-text-align-center">$f_{lk}= \mu f_{kl} \mu,$</p>
+
+<p>where $\mu$ is the quaternion conjugation. Since $\mu$ is orientation-reversing, the orientation of $\xi_{kl}$ and $\xi_{lk}$ are opposite. By the fact that Pontrjagin classes are independent of orientation, then $p_1(\xi_{kl}) = p_1(\xi_{lk})$. This shows that $p_1(\xi_{kl})$ has to be of form</p>
+
+<p class="has-text-align-center">$p_1(\xi_{kl}) = c(k-l) \in H^4(S^4) =\mathbb Z.$</p>
+
+<p>It suffices to find the constant $c$. Since $c$ is universal, it can be obtained by computing in the special case when $k=1,l=0$. It turns out that $\xi_{10} \cong \gamma^{1}_{\mathbb H}$, where $\gamma^{1}_{\mathbb H}$ is the tautological line bundle of the quaternion projective line $\mathbb HP^1 \cong S^4$. It can be proved that $p_1(\gamma^1_{\mathbb H}) = \pm 2$. Therefore, $c=\pm 2$.</p>
+
+<p>Thus, </p>
+
+<p>$\lambda(M_{kl}) = 2q(B_{ kl}) - \sigma(B_{kl}) = 8(k-l)^2 -1 =(k-l)^2 -1 \mod 7.$</p>
+
+<p>Therefore, if we choose $k,l$ such that $(k-l)^2 \neq 1 \mod 7$, then $\lambda(M_{kl}) \neq 0 = \lambda(S^7)$. This complete a proof that $M_{kl}$ is not diffeomorphic to $S^7$. </p>
+
+<p>In fact, one can prove there exactly 28 differentiable structures on $S^7$. Those differentiable structures are explicitly constructed by Brieskorn [5]. Milnor’s construction of exotic 7-spheres marked a profound turning point in differential topology. It revealed that the smooth category is far richer than its topological counterpart: even when the underlying space is as familiar and rigid as a sphere, differentiable structures may hide unexpected richness. Nowadays, through surgery theory, bordism, and gauge-theoretic methods, smooth structures have been largely understood in most dimensions, except for dimension four. The existence of an exotic sphere in dimension 4 is still an open problem, which is known as the <em>smooth Poincaré conjecture</em>.</p>
+
+<p>[1] Milnor, J. (1956). <em>On manifolds homeomorphic to the 7-sphere</em>. <strong>Annals of Mathematics</strong>, <em>64</em>(2), 399–405. <a>https://doi.org/10.2307/1969983</a></p>
+
+<p>[2] Milnor, J. W. (1963). <em>Morse theory</em> (Annals of Mathematics Studies, Vol. 51). Princeton University Press.</p>
+
+<p>[3] Milnor, J. W., &amp; Stasheff, J. D. (1974). <em>Characteristic classes</em> (Annals of Mathematics Studies, Vol. 76). Princeton University Press.</p>
+
+<p>[4] Thom, R. (1954). <em>Quelques propriétés globales des variétés différentiables</em>. <strong>Commentarii Mathematici Helvetici, 28</strong>, 17–86.</p>
+
+<p>[5] Brieskorn, E. (1966). <em>Beispiele zur Differentialtopologie von Singularitäten</em>. <strong>Inventiones Mathematicae, 2</strong>, 1–14. <a>https://doi.org/10.1007/BF01403388</a></p>
+    </div>
+  </article>
+
+  <nav class="post-nav">
+    <a href="open-book-decomposition-of-3-manifolds.html">← Open Book Decomposition of 3-Manifolds</a>
+    <span></span>
+  </nav>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="bar">
+    <div>© <span id="yr">2026</span> Trần Quang Huy · Department of Mathematics, UIUC</div>
+    <div class="foot-links">
+      <a href="mailto:hqt2@illinois.edu">hqt2@illinois.edu</a>
+      <a href="../about.html">Contact</a>
+      <a href="https://illinois.edu/">Illinois</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

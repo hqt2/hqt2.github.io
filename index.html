@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vietnamese-Illini Math Guy</title>
+  <meta name="description" content="Trần Quang Huy — mathematics PhD student at the University of Illinois Urbana-Champaign, working in geometric analysis.">
+  <meta name="author" content="Trần Quang Huy">
+  <meta property="og:title" content="Vietnamese-Illini Math Guy">
+  <meta property="og:description" content="Trần Quang Huy — mathematics PhD student at the University of Illinois Urbana-Champaign, working in geometric analysis.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://hqt2.github.io/">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∮</text></svg>">
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    window.__toggleTheme = function () {
+      var cur = root.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    };
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="mark">∮</span> Vietnamese-Illini Math Guy</a>
+    <nav class="main" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="notes.html">Notes</a>
+        <a href="links.html">Links</a>
+    </nav>
+    <button class="theme-toggle" type="button" onclick="window.__toggleTheme()" aria-label="Switch between light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="banner">
+  <img src="assets/img/banner.jpg" alt="Sunset over a lake near Urbana, Illinois" width="1800" height="1350"
+       onerror="this.closest('.banner').remove();">
+</div>
+
+<div class="wrap wrap--wide wrap--hero">
+  <div class="hero">
+    <figure class="portrait" data-monogram="TQH">
+      <img src="assets/img/profile.jpg" alt="Trần Quang Huy" width="700" height="875"
+           onerror="this.closest('.portrait').classList.add('is-empty'); this.remove();">
+    </figure>
+    <div>
+      <h1>Hi there, my name is Trần Quang Huy.</h1>
+      <p class="tagline">I am a Math PhD student at <a href="https://illinois.edu/">UIUC</a>, working in geometric analysis.</p>
+      <div class="actions">
+        <a class="btn" href="research.html">My Research</a>
+        <a class="btn btn--ghost" href="about.html">About Me</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap wrap--tight">
+  <h2>Latest notes</h2>
+  <ul class="entries">
+    <li>
+      <a class="entry-title" href="posts/exotic-spheres-milnor-is-not-dead.html">Exotic Spheres: Milnor is Not Dead!</a>
+      <div class="entry-meta">
+        <time datetime="2025-12-22">December 22, 2025</time>
+        <span class="dot">·</span><span>Algebraic Topology · Topology</span>
+      </div>
+    </li>
+    <li>
+      <a class="entry-title" href="posts/open-book-decomposition-of-3-manifolds.html">Open Book Decomposition of 3-Manifolds</a>
+      <div class="entry-meta">
+        <time datetime="2025-01-11">January 11, 2025</time>
+        <span class="dot">·</span><span>Topology</span>
+      </div>
+    </li>
+    <li>
+      <a class="entry-title" href="posts/index-theory-of-elliptic-operators-pseudodifferential-operators.html">Index Theory of Elliptic Operators: Pseudodifferential Operators.</a>
+      <div class="entry-meta">
+        <time datetime="2024-05-25">May 25, 2024</time>
+        <span class="dot">·</span><span>Analysis</span>
+      </div>
+    </li>
+    <li>
+      <a class="entry-title" href="posts/resolution-of-the-singularity-of-the-heat-kernel.html">Resolution of the Singularity of the Heat Kernel</a>
+      <div class="entry-meta">
+        <time datetime="2024-03-28">March 28, 2024</time>
+        <span class="dot">·</span><span>Analysis · PDEs</span>
+      </div>
+    </li>
+    <li>
+      <a class="entry-title" href="posts/why-geodesics-should-be-geodesics.html">Why geodesics should be ... geodesics?</a>
+      <div class="entry-meta">
+        <time datetime="2023-09-27">September 27, 2023</time>
+        <span class="dot">·</span><span>Classical mechanics · General Relativity · Riemannian Geometry · Symplectic Geometry</span>
+      </div>
+    </li>
+  </ul>
+  <p style="margin-top:1.2rem"><a href="notes.html">All notes &amp; expository writing →</a></p>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="bar">
+    <div>© <span id="yr">2026</span> Trần Quang Huy · Department of Mathematics, UIUC</div>
+    <div class="foot-links">
+      <a href="mailto:hqt2@illinois.edu">hqt2@illinois.edu</a>
+      <a href="about.html">Contact</a>
+      <a href="https://illinois.edu/">Illinois</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

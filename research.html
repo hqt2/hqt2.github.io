@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research · Vietnamese-Illini Math Guy</title>
+  <meta name="description" content="Geometric analysis: hypoelliptic operators on contact manifolds, Heisenberg calculus, the 0-calculus, and geometric flows.">
+  <meta name="author" content="Trần Quang Huy">
+  <meta property="og:title" content="Research · Vietnamese-Illini Math Guy">
+  <meta property="og:description" content="Geometric analysis: hypoelliptic operators on contact manifolds, Heisenberg calculus, the 0-calculus, and geometric flows.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://hqt2.github.io/research.html">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∮</text></svg>">
+<script>
+  (function () {
+    var root = document.documentElement;
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    window.__toggleTheme = function () {
+      var cur = root.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    };
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="mark">∮</span> Vietnamese-Illini Math Guy</a>
+    <nav class="main" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html" aria-current="page">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="notes.html">Notes</a>
+        <a href="links.html">Links</a>
+    </nav>
+    <button class="theme-toggle" type="button" onclick="window.__toggleTheme()" aria-label="Switch between light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <h1>Research</h1>
+
+  <p class="eyebrow">Research description</p>
+  <p>My research focuses on Geometric Analysis. I am interested in various aspects of Geometry and its interplay with other fields, such as Analysis, Topology, and Physics. I used to study Geometric Flows, especially <a href="https://en.wikipedia.org/wiki/Ricci_flow">Ricci flow (RF)</a> and <a href="https://en.wikipedia.org/wiki/Mean_curvature_flow">Mean Curvature Flow (MCF)</a>, during my undergraduate studies.</p>
+
+  <p>These days, I have mostly been thinking about hypoelliptic operators on contact manifolds. I am trying to combine the so-called Heisenberg calculus developed by Beals&ndash;Greiner with the 0-calculus of Melrose&ndash;Mazzeo, thereby enabling study of boundary value problems for hypoelliptic operators. I aim to address some fundamental problems, such as Fredholmness of BVPs. If successful, I plan to apply these theories to the Hodge Laplacians of Rumin's complex, an analogue of the Hodge theory for de Rham's complex, on contact manifolds. In the long run, I expect to manipulate them in studying invariants on contact manifolds.</p>
+
+  <details class="fold" open>
+    <summary>Geometric flows</summary>
+    <div class="fold-body">
+      <p>Geometric Flows have emerged as powerful tools in Geometric Analysis. They are described in terms of Partial Differential Equations (PDEs), which evolve geometric structures of manifolds while still preserving other properties of manifolds, such as topological or smooth structures. Prominent applications of Geometric Flows are <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=84354">Perelman</a>'s resolution of <a href="https://www.claymath.org/millennium/poincare-conjecture/">Poincaré Conjecture</a> and <a href="https://profiles.stanford.edu/richard-schoen">Schoen</a>-<a href="https://www.columbia.edu/~sab2280/main.html">Brendle</a>'s proof of <a href="https://www.ams.org/journals/jams/2009-22-01/S0894-0347-08-00613-9/S0894-0347-08-00613-9.pdf">Differentiable Sphere Theorem</a> using <a href="https://en.wikipedia.org/wiki/Ricci_flow">Ricci flow</a>, or <a href="https://projecteuclid.org/journals/journal-of-differential-geometry/volume-59/issue-3/The-Inverse-Mean-Curvature-Flow-and-the-Riemannian-Penrose-Inequality/10.4310/jdg/1090349447.full">Huisken-Illmanen's proof</a> of <a href="https://en.wikipedia.org/wiki/Riemannian_Penrose_inequality">Riemannian Penrose Inequality</a> using <a href="https://en.wikipedia.org/wiki/Inverse_mean_curvature_flow">Inverse Mean Curvature Flow</a>.</p>
+    </div>
+  </details>
+
+  <h2>Elsewhere on this site</h2>
+  <ul class="entries">
+    <li>
+      <a class="entry-title" href="publications.html">Publications &amp; preprints</a>
+      <p class="entry-note">Journal articles and arXiv preprints.</p>
+    </li>
+    <li>
+      <a class="entry-title" href="notes.html">Notes &amp; expository writing</a>
+      <p class="entry-note">Longer write-ups on topics I have been reading about.</p>
+    </li>
+  </ul>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="bar">
+    <div>© <span id="yr">2026</span> Trần Quang Huy · Department of Mathematics, UIUC</div>
+    <div class="foot-links">
+      <a href="mailto:hqt2@illinois.edu">hqt2@illinois.edu</a>
+      <a href="about.html">Contact</a>
+      <a href="https://illinois.edu/">Illinois</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
