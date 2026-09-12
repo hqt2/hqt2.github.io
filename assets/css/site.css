@@ -312,14 +312,14 @@ code { font-family: var(--mono); font-size: .9em; }
 }
 
 .contact-list { list-style: none; margin: 0; padding: 0; }
-.contact-list li { margin: 0 0 .55rem; display: flex; gap: .7rem; flex-wrap: wrap; }
+.contact-list li { margin: 0 0 .35rem; display: flex; gap: .7rem; flex-wrap: wrap; }
 .contact-list li:last-child { margin-bottom: 0; }
 .contact-list .label {
   font-family: var(--sans); font-size: .74rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
   color: var(--faint); min-width: 5rem; padding-top: .28em;
 }
-.contact-list .value { flex: 1 1 14rem; min-width: 0; overflow-wrap: anywhere; }
+.contact-list .value { flex: 1 1 14rem; min-width: 0; overflow-wrap: anywhere; line-height: 1.45; }
 
 /* Publication entries */
 .pub { margin: 0 0 1.4rem; padding-left: 1.6rem; position: relative; }
@@ -476,7 +476,7 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding-bl
   .wrap--tight { padding-block: 0 3rem; }
   .bio { grid-template-columns: 1fr; }
   .bio-photo { max-width: 13rem; margin-inline: auto; }
-  .contact-list li { flex-direction: column; gap: .1rem; }
+  .contact-list li { flex-direction: column; gap: .05rem; margin-bottom: .22rem; }
   .contact-list .label { padding-top: 0; }
   .site-footer .foot-links { margin-left: 0; }
 }
