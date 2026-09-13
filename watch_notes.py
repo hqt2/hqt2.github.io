@@ -9,11 +9,14 @@ Usage:
 Leave this running in a Terminal window. Whenever you drop (save,
 drag-and-drop, or move) a .pdf file into notes_inbox/, the script:
   1. waits until the file is done being written (size stops changing),
-  2. asks you, right there in the terminal, for a short one-line note
-     describing the file,
-  3. moves the PDF into assets/notes/<safe-name>.pdf,
-  4. adds a new entry at the top of the "Lecture notes" list on
-     notes.html, using what you typed as the link text.
+  2. asks you, right there in the terminal, for the title to show as the
+     link text,
+  3. asks you for a one-line description to show underneath the title
+     (leave it blank to skip — no auto-generated "PDF, added <date>"
+     text is added anymore),
+  4. moves the PDF into assets/notes/<safe-name>.pdf,
+  5. adds a new entry at the top of the "Lecture notes" list on
+     notes.html with that title and description.
 
 It only touches local files — nothing is pushed to GitHub automatically.
 After adding note(s) you're happy with, publish them the usual way:
@@ -30,7 +33,6 @@ import time
 import shutil
 import unicodedata
 from pathlib import Path
-from datetime import datetime
 
 SITE_ROOT = Path(__file__).resolve().parent
 NOTES_INBOX = SITE_ROOT / "notes_inbox"
@@ -95,19 +97,26 @@ def unique_pdf_path(base_slug: str) -> Path:
     return candidate
 
 
-def insert_note_entry(title: str, href: str, caption: str):
+def insert_note_entry(title: str, href: str, caption: str = ""):
     content = read(NOTES_HTML)
     ul_re = re.compile(r'(<ul class="linklist">)(.*?)(</ul>)', re.DOTALL)
     m = ul_re.search(content)
     if not m:
         sys.exit('Could not find <ul class="linklist"> in notes.html.')
 
-    new_li = (
-        f'    <li>\n'
-        f'      <p><a href="{href}">{title}</a></p>\n'
-        f'      <p class="url">{caption}</p>\n'
-        f'    </li>'
-    )
+    if caption:
+        new_li = (
+            f'    <li>\n'
+            f'      <p><a href="{href}">{title}</a></p>\n'
+            f'      <p class="url">{caption}</p>\n'
+            f'    </li>'
+        )
+    else:
+        new_li = (
+            f'    <li>\n'
+            f'      <p><a href="{href}">{title}</a></p>\n'
+            f'    </li>'
+        )
 
     items = re.findall(r'<li>.*?</li>', m.group(2), flags=re.DOTALL)
     items = [item.strip() for item in items]
@@ -124,11 +133,16 @@ def process_pdf(pdf_path: Path):
         return
 
     try:
-        description = input(f'  Ghi chú ngắn cho "{pdf_path.name}" (sẽ dùng làm tên link): ').strip()
+        title = input(f'  Tên hiển thị cho "{pdf_path.name}" (dùng làm tên link): ').strip()
+    except EOFError:
+        title = ""
+    if not title:
+        title = pdf_path.stem
+
+    try:
+        description = input('  Mô tả ngắn (hiện bên dưới tên, Enter để bỏ trống): ').strip()
     except EOFError:
         description = ""
-    if not description:
-        description = pdf_path.stem
 
     base_slug = slugify(pdf_path.stem)
     dest = unique_pdf_path(base_slug)
@@ -136,13 +150,11 @@ def process_pdf(pdf_path: Path):
     shutil.move(str(pdf_path), str(dest))
 
     rel_href = f"assets/notes/{dest.name}"
-    today = datetime.now().strftime("%B %-d, %Y") if sys.platform != "win32" else datetime.now().strftime("%B %d, %Y")
-    caption = f"PDF, added {today}."
-    insert_note_entry(description, rel_href, caption)
+    insert_note_entry(title, rel_href, description)
 
     print(f"  Saved to {rel_href}")
-    print(f'  Added to notes.html: "{description}"')
-    print("  When ready, publish with:\n    git add -A\n    git commit -m \"Add note: " + description + "\"\n    git push")
+    print(f'  Added to notes.html: "{title}"' + (f' — "{description}"' if description else ""))
+    print("  When ready, publish with:\n    git add -A\n    git commit -m \"Add note: " + title + "\"\n    git push")
 
 
 def main():
