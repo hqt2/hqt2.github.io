@@ -97,7 +97,33 @@ def unique_pdf_path(base_slug: str) -> Path:
     return candidate
 
 
+def ensure_linklist_exists():
+    """Make sure notes.html has a <ul class="linklist"> wrapper to insert
+    into. If someone hand-edited the file and deleted the wrapper (e.g.
+    while removing the last note manually instead of via delete_note.py),
+    recreate an empty one right after the page's lede paragraph instead of
+    failing outright."""
+    content = read(NOTES_HTML)
+    if re.search(r'<ul class="linklist">.*?</ul>', content, re.DOTALL):
+        return
+
+    lede_re = re.compile(r'(<p class="lede">.*?</p>[ \t]*\n)(?:[ \t]*\n)*', re.DOTALL)
+    lm = lede_re.search(content)
+    if not lm:
+        sys.exit(
+            'Could not find <ul class="linklist"> in notes.html, and could not '
+            'find a safe place to recreate it either. Please manually add:\n'
+            '  <ul class="linklist">\n  </ul>\n'
+            'somewhere inside the Notes section of notes.html, then try again.'
+        )
+    insertion = lm.group(1) + '\n  <ul class="linklist">\n  </ul>\n\n'
+    new_content = content[:lm.start()] + insertion + content[lm.end():]
+    write(NOTES_HTML, new_content)
+    print('  (notes.html was missing its <ul class="linklist"> wrapper — recreated it automatically)')
+
+
 def insert_note_entry(title: str, href: str, caption: str = ""):
+    ensure_linklist_exists()
     content = read(NOTES_HTML)
     ul_re = re.compile(r'(<ul class="linklist">)(.*?)(</ul>)', re.DOTALL)
     m = ul_re.search(content)
@@ -143,6 +169,11 @@ def process_pdf(pdf_path: Path):
         description = input('  Mô tả ngắn (hiện bên dưới tên, Enter để bỏ trống): ').strip()
     except EOFError:
         description = ""
+
+    # Check/repair notes.html's structure BEFORE moving the file, so a
+    # broken notes.html can never leave the PDF stranded in assets/notes/
+    # without a matching entry.
+    ensure_linklist_exists()
 
     base_slug = slugify(pdf_path.stem)
     dest = unique_pdf_path(base_slug)
