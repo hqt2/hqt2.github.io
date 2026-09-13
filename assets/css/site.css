@@ -5,17 +5,18 @@
 
 /* ---- Colour tokens: light (default) ---- */
 :root {
-  --bg:        #fbfaf8;
+  --bg:        #f7fafd;
   --surface:   #ffffff;
-  --text:      #1c1b19;
-  --muted:     #6b6862;
-  --faint:     #918d85;
-  --border:    #e5e1da;
-  --link:      #1b3f6b;
-  --link-hover:#e84a27;
-  --accent:    #e84a27;   /* Illinois orange */
-  --deep:      #13294b;   /* Illinois blue   */
-  --shadow:    0 1px 2px rgba(28,27,25,.05), 0 8px 24px rgba(28,27,25,.06);
+  --text:      #14202e;
+  --muted:     #55677c;
+  --faint:     #8296ac;
+  --border:    #dbe6f2;
+  --link:      #1d5fd6;
+  --link-hover:#0b3fae;
+  --accent:    #1d6fe8;   /* vivid blue */
+  --accent-soft: #eaf2fe;
+  --deep:      #0b2f66;   /* deep navy   */
+  --shadow:    0 1px 2px rgba(11,47,102,.06), 0 10px 28px rgba(11,47,102,.09);
 
   --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
   --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -29,31 +30,33 @@
 /* ---- Colour tokens: dark ---- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:        #14161a;
-    --surface:   #1b1e24;
-    --text:      #e7e5e0;
-    --muted:     #a09b93;
-    --faint:     #857f77;
-    --border:    #2b2f37;
-    --link:      #8fb8e8;
-    --link-hover:#ff7d55;
-    --accent:    #ff7d55;
+    --bg:        #0b1220;
+    --surface:   #121c30;
+    --text:      #e7edf7;
+    --muted:     #9db1cc;
+    --faint:     #75859f;
+    --border:    #223256;
+    --link:      #7ab2ff;
+    --link-hover:#a9cbff;
+    --accent:    #4a9dff;
+    --accent-soft: #17264a;
     --deep:      #cfe0f5;
-    --shadow:    0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+    --shadow:    0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.32);
   }
 }
 :root[data-theme="dark"] {
-  --bg:        #14161a;
-  --surface:   #1b1e24;
-  --text:      #e7e5e0;
-  --muted:     #a09b93;
-  --faint:     #857f77;
-  --border:    #2b2f37;
-  --link:      #8fb8e8;
-  --link-hover:#ff7d55;
-  --accent:    #ff7d55;
+  --bg:        #0b1220;
+  --surface:   #121c30;
+  --text:      #e7edf7;
+  --muted:     #9db1cc;
+  --faint:     #75859f;
+  --border:    #223256;
+  --link:      #7ab2ff;
+  --link-hover:#a9cbff;
+  --accent:    #4a9dff;
+  --accent-soft: #17264a;
   --deep:      #cfe0f5;
-  --shadow:    0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+  --shadow:    0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.32);
 }
 
 /* ---- Base ---- */
@@ -70,6 +73,7 @@ body {
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  padding-bottom: var(--footer-h, 4.75rem);   /* reserve space above the fixed footer */
 }
 
 img { max-width: 100%; height: auto; }
@@ -94,7 +98,7 @@ a:hover { color: var(--link-hover); }
   -webkit-backdrop-filter: saturate(1.6) blur(10px);
   border-bottom: 1px solid var(--border);
 }
-.site-header::after {            /* thin Illinois-orange rule */
+.site-header::after {            /* thin accent-blue rule */
   content: ""; display: block; height: 2px; background: var(--accent);
   transform-origin: left; opacity: .9;
 }
@@ -335,14 +339,15 @@ code { font-family: var(--mono); font-size: .9em; }
 .pill {
   font-family: var(--sans); font-size: .74rem; font-weight: 600;
   letter-spacing: .02em;
-  padding: .16rem .5rem;
-  border: 1px solid var(--border);
+  padding: .16rem .55rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
   border-radius: 999px;
-  color: var(--muted);
+  background: var(--accent-soft);
+  color: var(--accent);
   text-decoration: none;
   white-space: nowrap;
 }
-a.pill:hover { color: var(--accent); border-color: var(--accent); }
+a.pill:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
 
 /* Post / link listing */
 .entries { list-style: none; margin: 1.2rem 0 0; padding: 0; }
@@ -446,16 +451,19 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding-bl
   margin: 1.5rem 0;
 }
 
-/* ---- Footer ---- */
+/* ---- Footer: fixed to the bottom of the viewport, stays put on scroll ---- */
 .site-footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 40;
   border-top: 1px solid var(--border);
-  margin-top: 2rem;
-  background: color-mix(in srgb, var(--text) 2.5%, transparent);
+  background: color-mix(in srgb, var(--surface) 96%, var(--accent) 4%);
+  box-shadow: 0 -4px 16px rgba(11,47,102,.08);
 }
 .site-footer .bar {
-  padding-block: 1.6rem;
+  padding-block: 1rem;
   font-family: var(--sans); font-size: .82rem; color: var(--faint);
-  align-items: flex-start;
+  align-items: center;
 }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--accent); }
@@ -479,6 +487,8 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding-bl
   .contact-list li { flex-direction: column; gap: .05rem; margin-bottom: .22rem; }
   .contact-list .label { padding-top: 0; }
   .site-footer .foot-links { margin-left: 0; }
+  .site-footer .bar { flex-direction: column; align-items: flex-start; gap: .4rem; padding-block: .8rem; }
+  body { --footer-h: 6.5rem; }   /* footer wraps to two lines on narrow screens */
 }
 
 @media (prefers-reduced-motion: reduce) {
