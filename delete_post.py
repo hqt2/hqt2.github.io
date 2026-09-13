@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
 delete_post.py — remove a blog post from hqt2.github.io cleanly: deletes
-posts/<slug>.html, removes its entry from blog.html and index.html, and
-re-wires the prev/next navigation links on the posts before and after it.
+posts/<slug>.html, removes its entry from blog.html and index.html,
+re-wires the prev/next navigation links on the posts before and after
+it, and also removes the matching drafts/<slug>.md if new_post.py
+archived one there.
 
 Usage:
     python3 delete_post.py my-old-post
@@ -17,6 +19,7 @@ from pathlib import Path
 
 SITE_ROOT = Path(__file__).resolve().parent
 POSTS_DIR = SITE_ROOT / "posts"
+DRAFTS_DIR = SITE_ROOT / "drafts"
 BLOG_HTML = SITE_ROOT / "blog.html"
 INDEX_HTML = SITE_ROOT / "index.html"
 
@@ -107,10 +110,15 @@ def main():
     if not post_path.exists():
         sys.exit(f"posts/{slug} does not exist. Nothing to delete.")
 
+    slug_base = slug[:-len(".html")]
+    draft_path = DRAFTS_DIR / f"{slug_base}.md"
+    has_draft = draft_path.exists()
+
     # confirm
     title_match = re.search(r"<h1>(.*?)</h1>", read(post_path))
     title = title_match.group(1) if title_match else slug
-    answer = input(f'This will permanently delete "{title}" (posts/{slug}) '
+    draft_note = f" and its draft (drafts/{slug_base}.md)" if has_draft else ""
+    answer = input(f'This will permanently delete "{title}" (posts/{slug}){draft_note} '
                     f'and remove it from Blog/Home. Continue? [y/N] ').strip().lower()
     if answer != "y":
         print("Aborted, nothing changed.")
@@ -162,6 +170,11 @@ def main():
     # 3. delete the post file itself
     post_path.unlink()
     print(f"Deleted posts/{slug}")
+
+    # 3b. delete the matching draft, if one was archived by new_post.py
+    if has_draft:
+        draft_path.unlink()
+        print(f"Deleted drafts/{slug_base}.md")
 
     # 4. fix prev/next chain for remaining posts
     entries = list_blog_entries()

@@ -8,6 +8,13 @@ fixes the prev/next navigation links on its neighboring posts.
 Usage:
     python3 new_post.py my-draft.md
 
+Drafts live in drafts/. You can pass either a bare filename (it's
+looked up in drafts/ automatically) or a full path to the file. After
+a post is generated successfully, the draft is moved into drafts/ and
+renamed to drafts/<slug>.md, so it always pairs up with its post at
+posts/<slug>.html — delete_post.py uses that pairing to remove the
+draft too when a post is deleted.
+
 Draft format (front matter + Markdown body):
 
     title: My New Post
@@ -39,11 +46,13 @@ contains posts/, blog.html, index.html).
 import re
 import sys
 import html
+import shutil
 from pathlib import Path
 from datetime import datetime
 
 SITE_ROOT = Path(__file__).resolve().parent
 POSTS_DIR = SITE_ROOT / "posts"
+DRAFTS_DIR = SITE_ROOT / "drafts"
 BLOG_HTML = SITE_ROOT / "blog.html"
 INDEX_HTML = SITE_ROOT / "index.html"
 
@@ -372,7 +381,13 @@ def main():
         sys.exit("Usage: python3 new_post.py <draft.md>")
     draft_path = Path(sys.argv[1])
     if not draft_path.exists():
-        sys.exit(f"File not found: {draft_path}")
+        # bare filename (or a relative path that doesn't resolve as given) —
+        # look it up in drafts/ before giving up
+        candidate = DRAFTS_DIR / draft_path.name
+        if candidate.exists():
+            draft_path = candidate
+        else:
+            sys.exit(f"File not found: {draft_path} (also checked drafts/{draft_path.name})")
 
     meta, body = parse_draft(draft_path)
     slug_base = slugify(meta["title"])
@@ -402,6 +417,13 @@ def main():
     )
     write(out_path, post_html)
     print(f"Created posts/{slug}")
+
+    # -- archive the draft as drafts/<slug>.md, so it pairs up with the post --
+    DRAFTS_DIR.mkdir(exist_ok=True)
+    archived_draft = DRAFTS_DIR / f"{slug_base}.md"
+    if draft_path.resolve() != archived_draft.resolve():
+        shutil.move(str(draft_path), str(archived_draft))
+        print(f"Archived draft to drafts/{slug_base}.md")
 
     # -- update blog.html (with excerpt) --
     blog_li = build_entry_li(meta, slug, with_note=True, note_text=note_text)
