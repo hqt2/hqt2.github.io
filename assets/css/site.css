@@ -504,7 +504,6 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding-bl
 }
 
 /* Editorial refresh: shared navigation and the approved notebook homepage. */
-body { padding-bottom: 0; }
 h1, h2, h3, h4 { font-weight: 500; }
 .site-header { position: relative; background: var(--bg); backdrop-filter: none; }
 .site-header::after { display: none; }
@@ -538,7 +537,6 @@ nav.main a, .writing-menu summary { font-family: var(--sans); font-size: .75rem;
 @media (pointer: coarse) {
   .theme-toggle { flex-basis: 44px; width: 44px; height: 44px; }
 }
-.site-footer { position: static; background: var(--bg); box-shadow: none; }
 .site-footer .bar { padding-block: 1.5rem; font-size: .72rem; }
 .btn { background: var(--text); border-color: var(--text); color: var(--bg); border-radius: 4px; font-size: .8rem; font-weight: 400; }
 .btn:hover { color: var(--bg); }
